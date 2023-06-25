@@ -35,6 +35,7 @@ import Control.Monad.Fail (MonadFail)
 
 import Data.Bifunctor
 import qualified Data.ByteString.Short as BS
+import Data.ByteString.Short(ShortByteString)
 import Data.Char
 import Data.Data
 import Data.Foldable
