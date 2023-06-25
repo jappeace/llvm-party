@@ -27,12 +27,6 @@ data Operand
 -- | The 'LLVM.AST.Instruction.Call' instruction is special: the callee can be inline assembly
 type CallableOperand  = Either InlineAssembly Operand
 
--- | <http://llvm.org/docs/LangRef.html#metadata>
-data Metadata
-  = MDString ShortByteString -- ^ <http://llvm.org/docs/doxygen/html/classllvm_1_1MDNode.html>
-  | MDNode (MDRef MDNode) -- ^ <http://llvm.org/docs/doxygen/html/classllvm_1_1MDNode.html>
-  | MDValue Operand -- ^ <http://llvm.org/docs/doxygen/html/classllvm_1_1ValueAsMetadata.html>
-  deriving (Eq, Ord, Read, Show, Typeable, Data, Generic)
 
 -- | A 'MetadataNodeID' is a number for identifying a metadata node.
 -- Note this is different from "named metadata", which are represented with
@@ -481,11 +475,6 @@ data Encoding
   | UTFEncoding
   deriving (Eq, Ord, Read, Show, Typeable, Data, Generic)
 
-data TemplateValueParameterTag
-  = TemplateValueParameter
-  | GNUTemplateTemplateParam
-  | GNUTemplateParameterPack
-  deriving (Eq, Ord, Read, Show, Typeable, Data, Generic)
 
 -- | <https://llvm.org/doxygen/classllvm_1_1DILexicalBlockBase.html>
 data DILexicalBlockBase
