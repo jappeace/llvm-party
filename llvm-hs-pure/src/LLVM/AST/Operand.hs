@@ -2,11 +2,13 @@
 -- | A type to represent operands to LLVM 'LLVM.AST.Instruction.Instruction's
 module LLVM.AST.Operand
 ( module LLVM.AST.Operand
+, module X
 )
 where
 
 import LLVM.Prelude
 
+import LLVM.AST.Operand.DITemplateParameter as X
 import LLVM.AST.Name
 import LLVM.AST.Constant
 import LLVM.AST.InlineAssembly
@@ -483,24 +485,6 @@ data TemplateValueParameterTag
   = TemplateValueParameter
   | GNUTemplateTemplateParam
   | GNUTemplateParameterPack
-  deriving (Eq, Ord, Read, Show, Typeable, Data, Generic)
-
--- | <https://llvm.org/doxygen/classllvm_1_1DITemplateParameter.html>
-data DITemplateParameter
-  = DITemplateTypeParameter
-    { name :: ShortByteString
-    , type' :: Maybe (MDRef DIType)
-    -- ^ For DITemplateTypeParameter this field is required,
-    -- for DITemplateValueParameter it is optional.
-    }
-  -- ^ <https://llvm.org/docs/LangRef.html#ditemplatetypeparameter>
-  | DITemplateValueParameter
-    { name :: ShortByteString
-    , type' :: Maybe (MDRef DIType)
-    , value :: Maybe Metadata
-    , tag :: TemplateValueParameterTag
-    }
-  -- ^ <https://llvm.org/docs/LangRef.html#ditemplatevalueparameter>
   deriving (Eq, Ord, Read, Show, Typeable, Data, Generic)
 
 -- | <https://llvm.org/doxygen/classllvm_1_1DILexicalBlockBase.html>

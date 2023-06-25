@@ -66,6 +66,7 @@ library
     LLVM.AST.Linkage
     LLVM.AST.Name
     LLVM.AST.Operand
+    LLVM.AST.Operand.DITemplateParameter
     LLVM.AST.RMWOperation
     LLVM.AST.ThreadLocalStorage
     LLVM.AST.Type

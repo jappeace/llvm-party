@@ -1,6 +1,5 @@
 {-# LANGUAGE
   DuplicateRecordFields,
-  DisambiguateRecordFields,
   MultiParamTypeClasses,
   NamedFieldPuns,
   OverloadedStrings,
