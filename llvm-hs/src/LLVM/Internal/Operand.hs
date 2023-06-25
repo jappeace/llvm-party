@@ -840,7 +840,7 @@ getDITemplateParameterName :: A.DITemplateParameter -> ShortByteString
 getDITemplateParameterName A.DITemplateTypeParameter {..} = name
 getDITemplateParameterName A.DITemplateValueParameter{..} = name
 
-getDITemplateParameterType :: A.DITemplateParameter -> Maybe (MDRef DIType)
+getDITemplateParameterType :: A.DITemplateParameter -> Maybe (A.MDRef A.DIType)
 getDITemplateParameterType A.DITemplateTypeParameter {..} = type'
 getDITemplateParameterType A.DITemplateValueParameter{..} = type'
 
