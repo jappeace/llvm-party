@@ -34,6 +34,17 @@ type CallableOperand  = Either InlineAssembly Operand
 newtype MetadataNodeID = MetadataNodeID Word
   deriving (Eq, Ord, Read, Show, Typeable, Data, Generic)
 
+-- | `MDRef` can either represent a reference to some piece of
+-- metadata or the metadata itself.
+--
+-- This is mainly useful for encoding cyclic metadata. Note that LLVM
+-- represents inline and non-inline nodes identically, so
+-- roundtripping the Haskell AST does not preserve whether a node was
+-- inline or not.
+data MDRef a
+  = MDRef MetadataNodeID
+  | MDInline a
+  deriving (Eq, Ord, Read, Show, Typeable, Data, Generic)
 
 instance Functor MDRef where
   fmap _ (MDRef i) = MDRef i
@@ -324,6 +335,14 @@ data Virtuality = NoVirtuality | Virtual | PureVirtual
   deriving (Eq, Ord, Read, Show, Typeable, Data, Generic)
 
 data BasicTypeTag = BaseType | UnspecifiedType
+  deriving (Eq, Ord, Read, Show, Typeable, Data, Generic)
+
+-- <https://llvm.org/doxygen/classllvm_1_1DIType.html>
+data DIType
+  = DIBasicType DIBasicType
+  | DICompositeType DICompositeType
+  | DIDerivedType DIDerivedType
+  | DISubroutineType DISubroutineType
   deriving (Eq, Ord, Read, Show, Typeable, Data, Generic)
 
 -- | <https://llvm.org/docs/LangRef.html#dibasictype>
