@@ -7,7 +7,8 @@
   QuasiQuotes,
   RecordWildCards,
   ScopedTypeVariables,
-  TemplateHaskell
+  TemplateHaskell,
+  AllowAmbiguousTypes
   #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 module LLVM.Internal.Operand where
