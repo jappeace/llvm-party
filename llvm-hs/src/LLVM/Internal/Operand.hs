@@ -1,5 +1,6 @@
 {-# LANGUAGE
   DuplicateRecordFields,
+  DisambiguateRecordFields,
   MultiParamTypeClasses,
   NamedFieldPuns,
   OverloadedStrings,
@@ -7,8 +8,7 @@
   QuasiQuotes,
   RecordWildCards,
   ScopedTypeVariables,
-  TemplateHaskell,
-  AllowAmbiguousTypes
+  TemplateHaskell
   #-}
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 module LLVM.Internal.Operand where
