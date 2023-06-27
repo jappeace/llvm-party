@@ -3,37 +3,54 @@
 {
   description = "My Haskell project";
 
+  nixConfig.extra-substituters = [ "https://haskell-language-server.cachix.org" ];
+  nixConfig.extra-trusted-public-keys = [ "haskell-language-server.cachix.org-1:juFfHrwkOxqIOZShtC4YC1uT1bBcq2RSvC7OMKx0Nz8=" ];
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    utils.url = "github:numtide/flake-utils";
+    hls.url = "github:haskell/haskell-language-server";
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
     };
   };
 
-  outputs = { self, nixpkgs, flake-compat }:
-    let
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      hpkgs = pkgs.haskell.packages.ghc944.override {
-        overrides = hnew: hold: {
-          llvm-party =
-            pkgs.haskell.lib.overrideCabal
-              (hnew.callCabal2nix "llvm-party" ./. { }) { libraryToolDepends = [ pkgs.llvmPackages_12.libllvm ]; };
-        };
+  outputs = {
+    nixpkgs,
+    utils,
+    hls,
+    ...
+  }:
+    utils.lib.eachSystem ["x86_64-linux"] (system: let
+      pkgs = nixpkgs.legacyPackages.${system};
+      ghcVersion = "94";
+
+      hpkgs = pkgs.haskell.packages."ghc${ghcVersion}".override {
+        overrides = hself: _hsuper:
+          with pkgs.haskell.lib.compose; {
+            llvm-party =
+              addBuildTools [pkgs.llvmPackages_12.libllvm]
+              (hself.callCabal2nix "llvm-party" ./. {});
+          };
       };
-    in
-    {
-      defaultPackage.x86_64-linux =  hpkgs.llvm-party;
-      inherit pkgs;
-      devShell.x86_64-linux = hpkgs.shellFor {
-        packages = ps : [ ps."llvm-party" ];
+
+      server = hls.packages.${system}."haskell-language-server-${ghcVersion}";
+
+      hsShell = hpkgs.shellFor {
+        packages = ps: [ps.llvm-party];
         withHoogle = true;
 
         buildInputs = [
-          hpkgs.haskell-language-server
+          server
+          
           pkgs.ghcid
           pkgs.cabal-install
         ];
       };
-    };
+    in {
+      legacyPackages = pkgs;
+      packages.default = hpkgs.llvm-party;
+      devShells.default = hsShell;
+    });
 }
