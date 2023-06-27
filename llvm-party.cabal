@@ -118,7 +118,6 @@ library
     fail,
     containers,
     unordered-containers >= 0.2,
-    llvm-hs-pure == 12.0.*
 
   default-extensions:
     NoImplicitPrelude
@@ -302,17 +301,16 @@ test-suite test
   type: exitcode-stdio-1.0
   build-depends:
     base >= 4.9 && < 5,
-    bytestring >= 0.10 && < 0.12,
+    bytestring >= 0.10,
     tasty >= 0.11,
     tasty-hunit >= 0.9,
     tasty-quickcheck >= 0.8,
     QuickCheck >= 2.5.1.1,
-    llvm-hs,
-    llvm-hs-pure,
+    llvm-party,
     containers >= 0.4.2.1,
     mtl >= 2.1,
     transformers >= 0.3.0.0,
-    temporary >= 1.2 && < 1.4,
+    temporary >= 1.2,
     pretty-show >= 1.6,
     process,
     temporary

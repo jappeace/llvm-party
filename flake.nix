@@ -16,7 +16,9 @@
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       hpkgs = pkgs.haskell.packages.ghc944.override {
         overrides = hnew: hold: {
-          llvm-party = hnew.callCabal2nix "llvm-party" ./. { };
+          llvm-party =
+            pkgs.haskell.lib.overrideCabal
+              (hnew.callCabal2nix "llvm-party" ./. { }) { libraryToolDepends = [ pkgs.llvmPackages_12.libllvm ]; };
         };
       };
     in
