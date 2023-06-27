@@ -62,7 +62,7 @@ flag debug
   default: False
 
 custom-setup
-  setup-depends: base
+  setup-depends: base < 5
                , Cabal < 3.10.1.0
                , containers
 
