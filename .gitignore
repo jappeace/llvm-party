@@ -1,4 +1,5 @@
 dist
+result*
 cabal-dev
 .shake.database
 out
@@ -12,3 +13,4 @@ cabal.project.local
 *.dwo
 .ghc.environment.*
 /stack.yaml.lock
+.direnv
