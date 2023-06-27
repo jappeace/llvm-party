@@ -1,3 +1,7 @@
+## 12.1.1 (2023.06.26)
+
++ Fix maintainer field
+
 ## 12.1.0 (2023.06.26)
 
 + Merge llvm-hs and llvm-hs-pure.

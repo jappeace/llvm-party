@@ -1,13 +1,13 @@
 cabal-version:      2.2
 name:               llvm-party
-version:            12.1.0
+version:            12.1.1
 license:            BSD-3-Clause
 license-file:       LICENSE
 author:
   Anthony Cowley, Stephen Diehl, Moritz Kiefer <moritz.kiefer@purelyfunctional.org>, Benjamin S. Scarlet
 
 maintainer:
-  Anthony Cowley, Stephen Diehl, Moritz Kiefer <moritz.kiefer@purelyfunctional.org>
+  Jappie Klooster <hi@jappie.me>
 
 copyright:          (c) 2013 Benjamin S. Scarlet and Google Inc.
 homepage:           http://github.com/jappeace/llvm-party/
