@@ -2,6 +2,7 @@
 
 + Merge llvm-hs and llvm-hs-pure.
 + Fix the build
++ Add upper bounds to everything
 
 # llvm-hs changelog
 
