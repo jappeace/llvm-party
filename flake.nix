@@ -43,7 +43,7 @@
 
         buildInputs = [
           server
-          
+
           pkgs.ghcid
           pkgs.cabal-install
         ];
