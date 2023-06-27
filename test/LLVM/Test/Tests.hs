@@ -22,6 +22,8 @@ import qualified LLVM.Test.OrcJIT as OrcJIT
 import qualified LLVM.Test.ParameterAttribute as ParameterAttribute
 import qualified LLVM.Test.Target as Target
 import qualified LLVM.Test.Regression as Regression
+import qualified LLVM.Test.DataLayout as DataLayout
+import qualified LLVM.Test.IRBuilder as IRBuilder
 
 tests = testGroup "llvm-hs" [
     CallingConvention.tests,
@@ -43,5 +45,10 @@ tests = testGroup "llvm-hs" [
     Linking.tests,
     Instrumentation.tests,
     ObjectCode.tests,
-    Regression.tests
+    Regression.tests,
+  ( testGroup "llvm-hs-pure"
+  [ DataLayout.tests
+  , IRBuilder.tests
+  ])
+
   ]

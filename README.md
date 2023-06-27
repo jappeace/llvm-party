@@ -1,4 +1,4 @@
-# llvm-hs - Haskell bindings for LLVM
+# llvm-party - Haskell bindings for LLVM
 
 [![Build Status](https://travis-ci.org/llvm-hs/llvm-hs.svg?branch=llvm-6)](https://travis-ci.org/llvm-hs/llvm-hs) [![Hackage](https://img.shields.io/hackage/v/llvm-hs.svg)](https://hackage.haskell.org/package/llvm-hs)
 
@@ -6,6 +6,10 @@ This project aims to provide a relatively complete set of bindings for
 the LLVM API. If you find that anything is missing please open an
 issue! We generally try to stay close to the LLVM C++-API so you can
 consult the LLVM documentation and reuse existing resources.
+
+This is yet [another](https://hackage.haskell.org/package/llvm-tf) [fork](https://hackage.haskell.org/package/llvm) [of](https://hackage.haskell.org/package/llvm-hs) [llvm](https://hackage.haskell.org/package/llvm-general).
+Specifically [llvm-hs](https://hackage.haskell.org/package/llvm-hs)/[llvm-hs-pure](https://hackage.haskell.org/package/llvm-hs-pure)
+was forked, and smashed together into a single package.
 
 ## Getting started
 

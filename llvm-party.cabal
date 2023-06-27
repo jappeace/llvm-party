@@ -1,6 +1,6 @@
 cabal-version: 2.2
-name: llvm-hs
-version: 12.0.0
+name: llvm-party
+version: 12.1.0
 license: BSD-3-Clause
 license-file: LICENSE
 author: Anthony Cowley, Stephen Diehl, Moritz Kiefer <moritz.kiefer@purelyfunctional.org>, Benjamin S. Scarlet
@@ -114,6 +114,10 @@ library
     template-haskell >= 2.5.0.0,
     containers >= 0.4.2.1,
     array >= 0.4.0.0,
+    bytestring >= 0.10 && < 0.12,
+    fail,
+    containers,
+    unordered-containers >= 0.2,
     llvm-hs-pure == 12.0.*
 
   default-extensions:
@@ -227,6 +231,39 @@ library
     LLVM.Target.Options
     LLVM.Threading
     LLVM.Transforms
+    LLVM.AST
+    LLVM.AST.AddrSpace
+    LLVM.AST.InlineAssembly
+    LLVM.AST.Attribute
+    LLVM.AST.ParameterAttribute
+    LLVM.AST.FunctionAttribute
+    LLVM.AST.CallingConvention
+    LLVM.AST.Constant
+    LLVM.AST.DataLayout
+    LLVM.AST.Float
+    LLVM.AST.FloatingPointPredicate
+    LLVM.AST.Global
+    LLVM.AST.Instruction
+    LLVM.AST.IntegerPredicate
+    LLVM.AST.Linkage
+    LLVM.AST.Name
+    LLVM.AST.Operand
+    LLVM.AST.RMWOperation
+    LLVM.AST.ThreadLocalStorage
+    LLVM.AST.Type
+    LLVM.AST.Typed
+    LLVM.AST.Visibility
+    LLVM.AST.DLL
+    LLVM.AST.COMDAT
+    LLVM.DataLayout
+    LLVM.IRBuilder
+    LLVM.IRBuilder.Constant
+    LLVM.IRBuilder.Instruction
+    LLVM.IRBuilder.Internal.SnocList
+    LLVM.IRBuilder.Module
+    LLVM.IRBuilder.Monad
+    LLVM.Prelude
+    LLVM.Triple
 
   other-modules:
     Control.Monad.AnyCont

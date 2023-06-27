@@ -1,2 +1,0 @@
-packages: ./llvm-hs/
-          ./llvm-hs-pure/
