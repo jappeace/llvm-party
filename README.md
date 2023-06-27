@@ -70,39 +70,31 @@ We love all kinds of contributions so please feel free to open issues for
 missing LLVM features, report & fix bugs or report API inconveniences.
 
 ### Becoming a maintainer
+Since this package has historically struggled to maintain active maintainers,
+I'm introducing a new "revolving door" structure for maintainership.
+This is a response to the realities of package maintenance.
 
-Since historically this package has lost (interest of)
-maintainers I'm introducing
-a new revolving door like structure for maintainership.
-This is a reaction to the reality of maintainership.
+Anyone is eligible to become a maintainer if they:
 
-Anyone is eligible to become maintainer if they:
++ Have created a GitHub account
++ Have created a Hackage account
++ Have updated at least three dependencies[^1] or made any meaningful contribution of a similar difficulty level.
 
-+ Created a github account
-+ Created a hackage account
-+ Has bumped at least 3 dependencies[^1] or made any meaningfull contribution of similar difficulty level.
+[^1]: If the existing maintainers fail to perform this basic level of maintenance, anyone pointing out their neglect deserves maintainership.
 
-[^1]: If he exiting maintainers failed to have do this kind of base level maintainence,
-      anyone pointing out their neglect, deserves maintainership.
+Maintainership will include commit and Hackage access.
+This relatively low bar will hopefully prevent this package from falling into disrepair again.
 
-The maintainership will include commit and hackage access.
-This rather low bar will hopefully prevent this package from falling
-in disrepair (again).
+Maintainers may be removed by other maintainers after a year of inactivity (no hard feelings).
+Inactivity is defined as no commits, no responses to messages, or no Hackage uploads.
+This is to mitigate the risk of supply chain attacks.
 
-Maintainers maybe removed by other maintainers after a year of inactivity
-(no hard feelings).
-Inactivity means, no commits, no responses to messages, or no hackage uploads.
-This is to mitigate supply chain attack risk.
+The maintainers have the right to change these rules; however, the rules apply to everyone.
 
-The maintainers hold the right to change these rules,
-however the rules apply to everyone.
-
-So if you want to become maintainer,
-open either an issue or email a maintainer,
-referring to these rules,
-and if you qualify,
-they'll add you.
-(if not you probably should fork).
+So, if you want to become a maintainer,
+open either an issue or email a current maintainer,
+referencing these rules. If you qualify,
+they'll add you. If not, you may want to consider creating a fork.
 
 ## Versioning
 
