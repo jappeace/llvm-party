@@ -47,6 +47,9 @@ extra-source-files:
   test/debug_metadata_4.ll
   test/debug_metadata_5.ll
   test/main_return_38.c
+  README.md
+  LICENSE
+  CHANGELOG.md
 
 tested-with:        GHC ==8.8.1
 extra-source-files: CHANGELOG.md
@@ -340,3 +343,4 @@ test-suite test
     LLVM.Test.Support
     LLVM.Test.Target
     LLVM.Test.Tests
+    LLVM.Test.IRBuilder
