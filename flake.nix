@@ -29,9 +29,7 @@
       hpkgs = pkgs.haskell.packages."ghc${ghcVersion}".override {
         overrides = hself: _hsuper:
           with pkgs.haskell.lib.compose; {
-            llvm-party =
-              addBuildTools [pkgs.llvmPackages_12.libllvm]
-              (hself.callCabal2nix "llvm-party" ./. {});
+            llvm-party = hself.callCabal2nix "llvm-party" ./. {};
           };
       };
 
@@ -43,7 +41,7 @@
 
         buildInputs = [
           server
-          
+
           pkgs.ghcid
           pkgs.cabal-install
         ];
