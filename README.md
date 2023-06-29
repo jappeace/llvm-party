@@ -69,6 +69,33 @@ and merely exposing them to Haskell as wrapped C or C++ functions.
 We love all kinds of contributions so please feel free to open issues for
 missing LLVM features, report & fix bugs or report API inconveniences.
 
+### Becoming a maintainer
+Since this package has historically struggled to maintain active maintainers,
+I'm introducing a new "revolving door" structure for maintainership.
+This is a response to the realities of package maintenance.
+
+Anyone is eligible to become a maintainer if they:
+
++ Have created a GitHub account
++ Have created a Hackage account
++ Have updated at least three dependencies[^1] or made any meaningful contribution of a similar difficulty level.
+
+[^1]: If the existing maintainers fail to perform this basic level of maintenance, anyone pointing out their neglect deserves maintainership.
+
+Maintainership will include commit and Hackage access.
+This relatively low bar will hopefully prevent this package from falling into disrepair again.
+
+Maintainers may be removed by other maintainers after a year of inactivity (no hard feelings).
+Inactivity is defined as no commits, no responses to messages, or no Hackage uploads.
+This is to mitigate the risk of supply chain attacks.
+
+The maintainers have the right to change these rules; however, the rules apply to everyone.
+
+So, if you want to become a maintainer,
+open either an issue or email a current maintainer,
+referencing these rules. If you qualify,
+they'll add you. If not, you may want to consider creating a fork.
+
 ## Versioning
 
 Trying to represent the version of LLVM in the version number but also
