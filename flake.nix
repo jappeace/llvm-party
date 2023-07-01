@@ -30,7 +30,7 @@
         overrides = hself: _hsuper:
           with pkgs.haskell.lib.compose; {
             llvm-party =
-              addBuildTools [pkgs.llvmPackages_15.libllvm]
+              addBuildTools [pkgs.llvmPackages_13.libllvm]
               (hself.callCabal2nix "llvm-party" ./. {});
           };
       };

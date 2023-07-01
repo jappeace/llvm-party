@@ -1,7 +1,14 @@
 #ifndef __LLVM_INTERNAL_FFI__ATTRIBUTES__H__
 #define __LLVM_INTERNAL_FFI__ATTRIBUTES__H__
 
-
+// To fix the assertation errors, get the latest version of Attributes
+// from here: https://raw.githubusercontent.com/llvm/llvm-project/main/llvm/include/llvm/IR/Attributes.td
+// then run it trough llvm-tblgen --gen-attrs Attributes.td
+// which will give you the approperiate numbers for ordering
+// the attribute under evaluation is shown first,
+// then later on in the stack trace, the expected number, compared
+// to the actual
+//
 // The last three arguments are flags indicating if this is a
 // parameter attribute, function result attribute or function attribute.
 #define LLVM_HS_FOR_EACH_ATTRIBUTE_KIND(macro)	\
@@ -13,13 +20,13 @@
   macro(Convergent,F,F,T)                           \
   macro(Hot,F,F,T)                                  \
   macro(ImmArg,T,F,F)                               \
-  macro(InAlloca,T,F,F)                             \
   macro(InReg,T,T,F)                                \
   macro(InaccessibleMemOnly,F,F,T)                  \
   macro(InaccessibleMemOrArgMemOnly,F,F,T)          \
   macro(InlineHint,F,F,T)                           \
   macro(JumpTable,F,F,T)                            \
   macro(MinSize,F,F,T)                              \
+  macro(MustProgress,F,F,T)                                \
   macro(Naked,F,F,T)                                \
   macro(Nest,T,F,F)                                 \
   macro(NoAlias,T,T,F)                              \
@@ -36,6 +43,7 @@
   macro(NoRecurse,F,F,T)                            \
   macro(NoRedZone,F,F,T)                            \
   macro(NoReturn,F,F,T)                             \
+  macro(NoSanitizeCoverage,F,F,T)                               \
   macro(NoSync,F,F,T)                               \
   macro(NoUndef,F,F,T)                              \
   macro(NoUnwind,F,F,T)                             \
@@ -63,6 +71,7 @@
   macro(StackProtectReq,F,F,T)                      \
   macro(StackProtectStrong,F,F,T)                   \
   macro(StrictFP,F,F,T)                             \
+  macro(SwiftAsync,T,F,F)                           \
   macro(SwiftError,T,F,F)                           \
   macro(SwiftSelf,T,F,F)                            \
   macro(UWTable,F,F,T)                              \
@@ -71,7 +80,8 @@
   macro(ZExt,T,T,F)                                 \
   macro(ByRef,T,F,F)                                \
   macro(ByVal,T,F,F)                                \
-  macro(MustProgress,F,F,T)                         \
+  macro(ElementType,F,F,T)                          \
+  macro(InAlloca,F,F,T)                             \
   macro(Preallocated,F,F,T)                         \
   macro(StructRet,T,F,F)                            \
   macro(Alignment,T,T,F)                            \
@@ -79,7 +89,7 @@
   macro(Dereferenceable,T,T,F)                      \
   macro(DereferenceableOrNull,T,T,F)                \
   macro(StackAlignment,F,F,T)                       \
-  macro(EndAttrKinds,F,F,F)
+  macro(VScaleRange,F,F,F)
 
 typedef enum {
 #define ENUM_CASE(x,p,r,f) LLVM_Hs_AttributeKind_ ## x,
