@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               llvm-party
-version:            12.1.1
+version:            15.0.0
 license:            BSD-3-Clause
 license-file:       LICENSE
 author:
