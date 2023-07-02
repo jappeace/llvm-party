@@ -108,6 +108,15 @@ component indicates the version of LLVM. A special case are the
 versions `3.major.minor` that represent bindings to LLVM 3.9. Bindings
 to earlier versions are not provided.
 
+For hackage releases this means the `master` branch contains always the *latest*
+version.
+But we can add other branches of major LLVM releases to backport patches and release
+them on hackage.
+For example if llvm is on 16, but there is a 12 release as well.
+A bug fixed in 16 maybe backproted to 12 on the LLVM-12 branch.
+Then released to hackage going from 12.0.0 to 12.1.0 (if it's breaking),
+or 12.0.1 (if it's not breaking).
+
 ## How is this related to llvm-general?
 
 This project is a fork of the venerable `llvm-general` that aims to improve the

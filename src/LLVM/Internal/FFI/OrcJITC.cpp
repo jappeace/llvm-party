@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 
+#include "llvm/ExecutionEngine/Orc/ExecutorProcessControl.h"
 #include <llvm/ExecutionEngine/Orc/CompileUtils.h>
 #include <llvm/ExecutionEngine/Orc/Core.h>
 #include <llvm/ExecutionEngine/Orc/ExecutionUtils.h>
@@ -53,7 +54,15 @@ extern "C" {
 // ExecutionSession
 
 ExecutionSession *LLVM_Hs_createExecutionSession() {
-    return new ExecutionSession();
+    // https://github.com/llvm/llvm-project/blob/main/llvm/examples/SpeculativeJIT/SpeculativeJIT.cpp#L52
+
+    auto control = SelfExecutorProcessControl::Create();
+    if (!control) {
+      std::cerr << "LLVM_Hs_createExecutionSession error: " << toString(std::move(control.takeError())) << std::endl;
+      return nullptr;
+    }
+    // https://github.com/llvm/llvm-project/blob/main/llvm/include/llvm/ExecutionEngine/Orc/Core.h#L1395
+    return new ExecutionSession(std::move(*control));
 }
 
 void LLVM_Hs_disposeExecutionSession(ExecutionSession *es) {

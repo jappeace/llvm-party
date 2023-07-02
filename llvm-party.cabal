@@ -1,6 +1,6 @@
 cabal-version:      2.2
 name:               llvm-party
-version:            12.1.1
+version:            13.0.0
 license:            BSD-3-Clause
 license-file:       LICENSE
 author:
@@ -86,10 +86,10 @@ library
   hs-source-dirs:     src
   build-tool-depends: hsc2hs:hsc2hs
   ghc-options:
-    -O2 -Wall -fno-warn-name-shadowing -fno-warn-orphans -optcxx=-O3
+    -Wall -fno-warn-name-shadowing -fno-warn-orphans -optcxx=-O3
     -optcxx=-Wall -optcxx=-std=c++14 -optcxx=-lstdc++
 
-  cxx-options:        -O3 -Wall -std=c++14
+  cxx-options:        -O2 -Wall -std=c++14
 
   if flag(llvm-with-rtti)
     cxx-options: -frtti
