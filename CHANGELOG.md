@@ -1,3 +1,13 @@
+## 13.0.0 (2023.07.01)
+
++ Fix build for llvm 13
+  + Drop set and get stack alignment override since I could no longer find them upstream
+  + Add a bunch of attributes that were missing.
+    (also document how to find these)
+  + Did stuff to the execution engine until it compiled.
+    This may leak memory, patches are welcome.
++ clarify release strategy in readme
+
 ## 12.1.1 (2023.06.26)
 
 + Fix maintainer field
