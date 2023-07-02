@@ -91,7 +91,6 @@ genCodingInstance [t| A.COMDAT.SelectionKind |] ''FFI.COMDATSelectionKind [
   (FFI.comdatSelectionKindAny, A.COMDAT.Any),
   (FFI.comdatSelectionKindExactMatch, A.COMDAT.ExactMatch),
   (FFI.comdatSelectionKindLargest, A.COMDAT.Largest),
-  (FFI.comdatSelectionKindNoDeduplicates, A.COMDAT.NoDeduplicates),
   (FFI.comdatSelectionKindSameSize, A.COMDAT.SameSize)
  ]
 
