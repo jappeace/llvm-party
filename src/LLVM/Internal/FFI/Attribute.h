@@ -81,7 +81,7 @@
   macro(ByRef,T,F,F)                                \
   macro(ByVal,T,F,F)                                \
   macro(ElementType,F,F,T)                          \
-  macro(InAlloca,F,F,T)                             \
+  macro(InAlloca,T,F,F)                             \
   macro(Preallocated,F,F,T)                         \
   macro(StructRet,T,F,F)                            \
   macro(Alignment,T,T,F)                            \
